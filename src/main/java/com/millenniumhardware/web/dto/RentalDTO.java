@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 public class RentalDTO {
-    private String rentalId;
+    private int rentalId;
     private String customerId;
     private LocalDate rentalDate;
     private LocalDate returnDate;
