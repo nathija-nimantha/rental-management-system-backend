@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,11 +18,14 @@ import java.time.LocalDate;
 public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String rentalId;
+    private int rentalId;
     private String customerId;
     private LocalDate rentalDate;
     private LocalDate returnDate;
     private LocalDate dueDate;
     private double totalCost;
     private double fine;
+
+    @OneToMany(mappedBy = "rental", cascade = CascadeType.ALL)
+    private List<RentalDetail> rentalDetails;
 }

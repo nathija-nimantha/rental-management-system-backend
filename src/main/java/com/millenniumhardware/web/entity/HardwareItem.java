@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,4 +22,7 @@ public class HardwareItem {
     private String itemAvailability;
     private double rentalPerDay;
     private double finePerDay;
+
+    @OneToMany(mappedBy = "hardwareItem", cascade = CascadeType.ALL)
+    private List<RentalDetail> rentalDetails;
 }
